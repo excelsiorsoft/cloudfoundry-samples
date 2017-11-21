@@ -108,13 +108,13 @@ PCF provides great visibility into the running applications through a component 
 
 * View recent application log:
 
-    $ cf logs spring-music --recent
+        $ cf logs spring-music --recent
 
 ![image alt text](image_16.png)
 
 * Live log streaming:
 
-    $ cf logs spring-music 
+        $ cf logs spring-music 
 
 Every container host (which is a Diego cell) runs a component called a Matreon which is a local staging point for the logs being streamed out of all of the individual containers.  The logs are also being aggregated from the system components, so the routers, the load balancers, the cloud controller, various registries will also go to these Matreon feeder systems and over various protocols are aggregated and tailed out to nozzles.  A nozzle is an arbitrary endpoint, so the architecture of the Loggregator is that we have a lot of different log sources and a lot of different log sinks and in between we have a set of different filters.  We might say, all of the logs related to this org or to this space, or this collection of applications should be picked up by this nozzle, but not these other ones, or they should be filtered in some interesting way.  Typically we see this, for example, developers want to concentrate on their dev environment whereas operations team care a lot about production.  So an app can be deployed in several different spaces but production environment have additional logging and monitoring tools attached to those nozzles because they may want to do further inspection of those logs as they are going to archive them, analyze them, etc.  
 
