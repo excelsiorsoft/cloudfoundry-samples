@@ -16,11 +16,11 @@ Now download PCF image from [here](https://network.pivotal.io/products/pcfdev).
 
 Unzip the downloaded file: 
 
-$ unzip pcfdev-VERSION-osx.zip
+    $ unzip pcfdev-VERSION-osx.zip
 
 And install the PCF Dev plugin:
 
-$ ./pcfdev-VERSION-osx
+    $ ./pcfdev-VERSION-osx
 
 We are ready to start using it:
 
