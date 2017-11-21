@@ -75,3 +75,14 @@ $curl cf-demo.local.pcfdev.io/hi
 Hello, world!
 $
 ```
+Here's the PCF Dev [site](https://pivotal.io/pcf-dev).
+
+More documentation on [PCF Dev](https://docs.pivotal.io/pcf-dev/usage.html).
+
+- Using local Apps Manager:
+
+![](imgs/img-4.png)
+
+Switching to pcfdev-space:
+
+![](imgs/img-5.png)
