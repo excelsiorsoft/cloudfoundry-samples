@@ -86,3 +86,7 @@ More documentation on [PCF Dev](https://docs.pivotal.io/pcf-dev/usage.html).
 Switching to pcfdev-space:
 
 ![](imgs/img-5.png)
+
+We can see all the details on the app + control its runtime from here:
+
+![](imgs/img-6.png)
