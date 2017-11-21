@@ -32,17 +32,17 @@ We are ready to start using it:
 
 Let’s deploy a sample app:
 
-$ git clone [https://github.com/cloudfoundry-samples/spring-music](https://github.com/cloudfoundry-samples/spring-music)
+    $ git clone [https://github.com/cloudfoundry-samples/spring-music](https://github.com/cloudfoundry-samples/spring-music)
 
-$ cd spring-music
+    $ cd spring-music
 
 Assemble the app locally with Gradle:
 
-$ ./gradlew assemble
+    $ ./gradlew assemble
 
 We are ready to deploy the app:
 
-$ cf push --hostname spring-music
+    $ cf push --hostname spring-music
 
 ![image alt text](image_4.png)
 
@@ -74,7 +74,7 @@ Let’s see the available MySQL offerings:
 
 We have 2 plans, both are free.  Let’s use the 512mb one:
 
-$ cf create-service p-mysql 512mb my-spring-db
+    $ cf create-service p-mysql 512mb my-spring-db
 
 ![image alt text](image_10.png)
 
@@ -100,21 +100,21 @@ PCF lets us scale the app up and down:
 
 We can also scale the app vertically, both for memory and disk:
 
-$ cf scale spring-music -m 1G
+    $ cf scale spring-music -m 1G
 
-$ cf scale spring-music -k 512M
+    $ cf scale spring-music -k 512M
 
 PCF provides great visibility into the running applications through a component called Loggregator which multiplexes the logs from multiple instances of various applications running on different nodes of a cluster  into a single log stream that we can then tail if necessary.
 
 * View recent application log:
 
-$ cf logs spring-music --recent
+    $ cf logs spring-music --recent
 
 ![image alt text](image_16.png)
 
 * Live log streaming:
 
-$ cf logs spring-music 
+    $ cf logs spring-music 
 
 Every container host (which is a Diego cell) runs a component called a Matreon which is a local staging point for the logs being streamed out of all of the individual containers.  The logs are also being aggregated from the system components, so the routers, the load balancers, the cloud controller, various registries will also go to these Matreon feeder systems and over various protocols are aggregated and tailed out to nozzles.  A nozzle is an arbitrary endpoint, so the architecture of the Loggregator is that we have a lot of different log sources and a lot of different log sinks and in between we have a set of different filters.  We might say, all of the logs related to this org or to this space, or this collection of applications should be picked up by this nozzle, but not these other ones, or they should be filtered in some interesting way.  Typically we see this, for example, developers want to concentrate on their dev environment whereas operations team care a lot about production.  So an app can be deployed in several different spaces but production environment have additional logging and monitoring tools attached to those nozzles because they may want to do further inspection of those logs as they are going to archive them, analyze them, etc.  
 
@@ -126,7 +126,7 @@ And all of the 3rd party partners mentioned above built their tooling using logg
 
 For example, we can create a Papertrail-based user provided log drain as a service:
 
-$ cf cups papertrail-logs -l syslog-tls://logs.papertrailapp.com:49046
+    $ cf cups papertrail-logs -l syslog-tls://logs.papertrailapp.com:49046
 
 which then can be bound to any application(s)
 
@@ -134,7 +134,7 @@ APM (Application Performance Manager):[ more content ]
 
 We are done.  PCF VM can be safely stopped now:
 
-$ cf dev stop
+    $ cf dev stop
 
 ![image alt text](image_17.png)
 
