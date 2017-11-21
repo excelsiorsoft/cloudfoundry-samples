@@ -10,4 +10,4 @@ alias ll='ls -lG'
 
 `ctrl+shift+r` -->  run in IntelliJ
 
-![](imgs/Screen Shot 2017-11-21 at 11.54.33 AM.png)
+![](./imgs/img-0.png)
