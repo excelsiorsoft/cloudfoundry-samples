@@ -22,3 +22,4 @@ build/
 
 *.odt#
 .DS_Store
+*.zip
